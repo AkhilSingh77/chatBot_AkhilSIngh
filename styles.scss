@@ -1,0 +1,292 @@
+@import "scss-components/boilerplate";
+@import "scss-components/colors";
+@import "scss-components/function";
+@import "scss-components/mixin";
+
+.body{
+  
+  .header{
+    @include flexRow(space-between,center);
+    height: pxtorem(80px);
+    padding: pxtorem(25px) pxtorem(25px);
+    border: 1px solid rgb(223, 221, 221);
+  
+    &__nav{
+      
+      padding-bottom: pxtorem(5px);
+      width: 40%;
+      @include flexRow(space-between,center);
+   
+      &__item{
+        @include flexRow(flex-start,center);
+        gap:pxtorem(15px);
+        &--head{
+          font-weight: 600;
+          font-size: pxtorem(17px);
+        }
+      }
+    }
+    &__allbuttons{
+      @include flexRow(center,center);
+      gap: pxtorem(10px);
+     
+            &__login{
+              background-color: white;
+              border: 1.5px solid black;
+              border-radius: pxtorem(5px);
+              padding: pxtorem(10px) pxtorem(20px);
+              @include flexRow();
+              gap: pxtorem(5px);
+              font-weight:700;
+              font-size: pxtorem(14px);
+            }
+            &__signup{
+              background-color: rgb(249, 39, 39);
+             font-weight:700;
+              color: white;
+              border-radius: pxtorem(5px);
+              padding: pxtorem(12px) pxtorem(20px);
+              @include flexRow(center,center);
+              gap: pxtorem(5px);
+              font-size: pxtorem(14px);
+            }
+    }
+  }
+
+.section{
+  height: calc(100vh - pxtorem(80px));
+  // background-color: rgb(22, 38, 129);
+
+ position: relative;
+  &__main{
+   @include flexColumn(flex-start,flex-end);
+   
+   gap: pxtorem(10px);
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+    &__top{
+   
+      @include flexColumn(flex-start,flex-end);
+      gap: pxtorem(10px);
+      &--detail{
+        background-color: white;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        width: pxtorem(250px);
+        padding: pxtorem(10px) pxtorem(10px);
+      }
+        .icon--cross{
+      scale: 1.1;
+      opacity: 0; 
+      transition: opacity 0.3s ease; 
+    }
+    }
+    &__top:hover .icon--cross{
+      opacity: 1;
+      cursor: pointer;
+ }
+  
+   
+   &--img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+   }
+   &--img:hover{
+    cursor: pointer;
+    filter: brightness(1.7);
+   }
+  }
+  &__chatbox{
+    background-color: white;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    width:370px ;
+    height: 90vh;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 3s;
+    .top{
+      @include flexRow(space-between);
+      background-color: white;
+      padding: pxtorem(17px) pxtorem(17px);
+      
+      &__left{
+        @include flexRow(flex-start,center);
+        gap: pxtorem(20px);
+       
+        &__imgBox{
+          &--img{
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+          }
+        }
+        &__chatHead{
+          padding-bottom: pxtorem(5px);
+          line-height: 1;
+          &--chatbot{
+            font-size: pxtorem(25px);
+          }
+        }
+      }
+      &__right:hover{
+        cursor: pointer;
+      }
+    }
+    .middle{
+      height: 65%;
+      max-height: 65% ;
+      overflow-y: auto;
+      padding: pxtorem(25px) pxtorem(25px);
+      background-color:rgb(233, 230, 230);
+      @include flexColumn();
+      border-top: 1px solid rgb(206, 203, 203);
+      gap: pxtorem(15px);
+      &__top{
+        @include flexColumn();
+        gap: pxtorem(10px);
+        &__imgBox{
+          @include flexRow();
+          gap:pxtorem(6px);
+          &--img{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+          }
+        }
+        &--head1{
+          background-color: white;
+          padding: pxtorem(10px) pxtorem(15px);
+          border-radius: 15px 15px 15px 0px;
+          width: fit-content;
+        }
+        &--head2{
+          background-color: white;
+          padding: pxtorem(15px) pxtorem(15px);
+          border-radius: 0px 15px 15px 15px;
+          width: fit-content
+        }
+      }
+         &__bottom{
+       
+          @include flexColumn(center,center);
+          gap:pxtorem(10px);
+          .temptime{
+            @include flexRow();
+            gap:7px
+          }
+          .tag{
+            background-color: white;
+            border: 1px solid blue;
+            color: blue;
+            width: fit-content;
+            font-size: pxtorem(17px);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: pxtorem(5px) pxtorem(15px);
+          }
+          .tag:hover{
+            cursor: pointer;
+          }
+         }
+         &__message{
+          @include flexColumn();
+          gap:pxtorem(15px);
+          &__input{
+
+            @include flexColumn(flex-end,flex-end);
+            gap:pxtorem(7px);
+            &--temp{
+              background-color: blue;
+              border: 1px solid blue;
+              color: white;
+              width: fit-content;
+              font-size: pxtorem(17px);
+              font-weight: 500;
+              border-radius: 15px 15px 0px 15px;
+              padding: pxtorem(10px) pxtorem(15px);
+            }
+          }
+          &__chatMssge{
+            @include flexColumn();
+            gap: pxtorem(10px);
+            .chatwithImage{
+              @include flexRow();
+              gap:pxtorem(5px);
+              &--image{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+              }
+            
+            }
+            .detail{
+              background-color: white;
+              width: fit-content;
+      padding: pxtorem(10px) pxtorem(5px);
+      border-radius: 10px 10px 10px 0px;
+            }
+            .allbuttons{
+              @include flexRow(center,center);
+              gap: 10px;
+              .singleButton{
+                padding: pxtorem(5px) pxtorem(15px);
+                border: 1px solid blue;
+                background-color: white;
+                border-radius: 10px;
+                color: blue;
+              }
+            }
+          }
+        }
+    }
+    .inputBox{
+      background-color: white;
+      padding: pxtorem(15px) pxtorem(25px);
+      @include flexRow(space-between,center);
+      border-bottom: 1px solid rgb(184, 184, 184);
+      &--input{
+        width: 70%;
+      }
+      &--input::placeholder{
+        font-size: pxtorem(15px);
+      }
+      &--search:hover{
+        cursor: pointer;
+      }
+    }
+    .bottom{
+      
+
+      @include flexRow(center,center);
+      background-color: white;
+      padding-top: 10px;
+      &--chatbot{
+        color: blue;
+        padding-left: 5px;
+      }
+    }
+  
+  }
+
+}
+}
+
+.hideIcon{
+  visibility: hidden;
+}
+
+.showIcon{
+  display:block !important;
+}
+
+.displayNone{
+  // transform: translateY(100%);
+  display: none !important;
+}

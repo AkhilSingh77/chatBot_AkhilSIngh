@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="header--main">
+        <img
+          src="https://calm-elf-974df4.netlify.app/images/chatbot-logo.svg"
+          alt=""
+        />
+      </div>
+      <ul class="header__nav">
+        <li class="header__nav__item item1">
+          <p class="header__nav__item--head item--head">Product</p>
+          <i
+            class="fa-solid fa-angle-down header__nav__item--icon item--icon"
+          ></i>
+        </li>
+        <li class="header__nav__item item2">
+          <p class="header__nav__item--head item--head">Pricing</p>
+          <i
+            class="fa-solid fa-angle-down header__nav__item--icon item--icon"
+          ></i>
+        </li>
+
+        <li class="header__nav__item item3">
+          <p class="header__nav__item--head item--head">Integrations</p>
+          <i
+            class="fa-solid fa-angle-down header__nav__item--icon item--icon"
+          ></i>
+        </li>
+        <li class="header__nav__item item4">
+          <p class="header__nav__item--head item--head">Resources</p>
+          <i
+            class="fa-solid fa-angle-down header__nav__item--icon item--icon"
+          ></i>
+        </li>
+      </ul>
+      <div class="header__allbuttons">
+        <button class="header__allbuttons__login">
+          <span class="header__allbuttons__login--lg">Log</span
+          ><span class="header__allbuttons__login--in">in</span>
+        </button>
+        <button class="header__allbuttons__signup">
+          <span class="header__allbuttons__signup--sign">Sign</span
+          ><span class="header__allbuttons__signup--up">up</span
+          ><span class="header__allbuttons__signup--free">free</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section__main">
+        <div class="section__main__top">
+          <i class="fa-solid fa-circle-xmark icon--cross"></i>
+          <p class="section__main__top--detail">
+           🙌 Welcome bak! How may I help you today?🤖
+          </p>
+        </div>
+        <img
+          src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
+          alt="logo"
+          class="section__main--img"
+        />
+      </div>
+      <div class="section__chatbox">
+        <div class="section__chatbox__top top">
+          <div class="top__left">
+        <div class="top__left__imgBox">
+          <img
+          src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
+          alt="logo"
+          class="top__left__imgBox--img"
+        />
+        </div>
+        <div class="top__left__chatHead">
+          <div class="top__left__chatHead--chatbot">ChatBot</div>
+          <div class="top__left__chatHead--online">Online</div>
+        </div>
+        </div>
+        <div class="top__right">
+          <i class="fa-solid fa-xmark top__right--cross"></i>
+        </div>
+      </div>
+      <div class="middle">
+            <div class="middle__top">
+              <div class="middle__top__imgBox">
+                <img
+                src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
+                alt="logo"
+                class="middle__top__imgBox--img"
+              />
+              <p class="middle__top__imgBox--chat">ChatBot</p>
+              </div>
+              <div class="middle__top--head1">Hi! I'm Mr. Chatbot 😎 Nice to meet you! 👋             
+              </div>
+              <div class="middle__top--head2">What information are you looking for?           
+              </div>
+            </div>
+            <div class="middle__bottom">
+              <div class="middle__bottom__temptime temptime">
+
+                <div class="temptime__temp tag" id="temperature">🌡️ Temperature</div>
+                <div class="temptime__time tag" id="time">🕛 Time</div>
+              </div>
+              <div class="middle__bottom__wind tag" id="wind">🎐Wind Speed
+              </div>
+              <div class="middle__bottom__weather tag" id="weather">⛅ Weather Status
+              </div>
+            </div>
+            <div class="middle__message">
+               <!-- <div class="middle__message__input">
+                <p class="middle__message__input--you">You</p>
+                <div class="middle__message__input--temp ">
+                  🌡️ Temperature
+                </div>
+               </div>
+               <div class="middle__message__chatMssge">
+                <div class="chatwithImage">
+                  <img
+                  src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
+                  alt=""
+                  class="chatwithImage--image"
+                />
+                <p class="chatwithImage--chat">ChatBot</p>
+                </div>
+                <div class="detail">
+                  Please enter your city name in the typing area! 😊
+                </div>
+                   <div class="allbuttons">
+                  <button class="allbuttons--yes singleButton">Yes</button>
+                  <button class="allbuttons--no singleButton">No</button>
+                </div>
+               </div> -->
+            </div>
+      </div>
+      <div class="inputBox">
+        <input type="text" placeholder="Type your message here" maxlength="256" class="inputBox--input" >
+        <i class="fa-solid fa-magnifying-glass inputBox--search"></i>
+      </div>
+      <div class="bottom">
+        Powered by <span class="bottom--chatbot"> Chatbot </span>
+      </div>
+      </div>
+     
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
