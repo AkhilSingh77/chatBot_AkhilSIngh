@@ -23,7 +23,7 @@ async function callApi(city) {
     console.log("Temperature:", data.main.temp, "°C");
     temperature = `${data.main.temp} °C`;
     console.log("Wind Speed:", data.wind.speed, "m/s");
-    wind = `${data.wind.speed},m/s `;
+    wind = `${data.wind.speed} m/s `;
     console.log("Time:", new Date(data.dt * 1000).toLocaleTimeString());
     time = new Date(data.dt * 1000).toLocaleTimeString();
     console.log("Weather Status:", data.weather[0].description);
@@ -173,7 +173,7 @@ function searchEnable(id) {
         detailSecondDiv.textContent = wind;
       }
       detailDiv.textContent = "Looking for something Else";
-      // const detailThirdDiv = document.createElement('div');
+   
 
       const allButtonsDiv = document.createElement("div");
       allButtonsDiv.classList.add("allbuttons");
@@ -182,7 +182,7 @@ function searchEnable(id) {
       yesButton.classList.add("allbuttons--yes", "singleButton");
       yesButton.textContent = "Yes";
       yesButton.addEventListener('click',()=>{
-        // console.log('yes')
+       
      
   const middleMessageChatMssge = document.createElement("div");
   middleMessageChatMssge.classList.add("middle__message__chatMssge");
@@ -214,7 +214,7 @@ yesButton.classList.add('allbuttons--yes', 'singleButton');
 yesButton.textContent = `${id}`;
 yesButton.addEventListener('click',()=>{
   createInformation();
-  console.log('ccc');
+
 })
 
 
@@ -238,6 +238,24 @@ allButtonsDiv.appendChild(noButton);
       const noButton = document.createElement("button");
       noButton.classList.add("allbuttons--no", "singleButton");
       noButton.textContent = "No";
+      noButton.addEventListener('click',()=>{
+        chatwithImageDiv.appendChild(chatImage);
+        chatwithImageDiv.appendChild(chatParagraph);
+        const detailDiv = document.createElement("div");
+        detailDiv.classList.add("detail");
+      detailDiv.textContent=`Thank You! 😊`;
+      const buttonElement = document.createElement("button");
+      buttonElement.textContent = 'Start the Chat again'
+      buttonElement.classList.add("startagain");
+      buttonElement.addEventListener('click',()=>{
+        location.reload();
+      })
+
+      middleMessageChatMssge.appendChild(chatwithImageDiv);
+      middleMessageChatMssge.appendChild(detailDiv);
+      middleMessageChatMssge.appendChild(buttonElement);
+      midddleElement.scrollTop = midddleElement.scrollHeight;
+      })
 
       allButtonsDiv.appendChild(yesButton);
       allButtonsDiv.appendChild(noButton);

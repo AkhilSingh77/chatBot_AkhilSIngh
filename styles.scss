@@ -131,7 +131,11 @@
           padding-bottom: pxtorem(5px);
           line-height: 1;
           &--chatbot{
+            padding-bottom: pxtorem(3px);
             font-size: pxtorem(25px);
+          }
+          &--online{
+            color: gray;
           }
         }
       }
@@ -242,6 +246,9 @@
                 border-radius: 10px;
                 color: blue;
               }
+              .singleButton:hover{
+                cursor: pointer;
+              }
             }
           }
         }
@@ -278,6 +285,16 @@
 }
 }
 
+.startagain{
+  width: fit-content;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+.startagain:hover{
+  cursor: pointer;
+}
 .hideIcon{
   visibility: hidden;
 }

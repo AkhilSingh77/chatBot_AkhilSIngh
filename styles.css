@@ -188,7 +188,11 @@ button {
   line-height: 1;
 }
 .body .section__chatbox .top__left__chatHead--chatbot {
+  padding-bottom: 0.1875rem;
   font-size: 1.5625rem;
+}
+.body .section__chatbox .top__left__chatHead--online {
+  color: gray;
 }
 .body .section__chatbox .top__right:hover {
   cursor: pointer;
@@ -332,6 +336,9 @@ button {
   border-radius: 10px;
   color: blue;
 }
+.body .section__chatbox .middle__message__chatMssge .allbuttons .singleButton:hover {
+  cursor: pointer;
+}
 .body .section__chatbox .inputBox {
   background-color: white;
   padding: 0.9375rem 1.5625rem;
@@ -364,6 +371,19 @@ button {
 .body .section__chatbox .bottom--chatbot {
   color: blue;
   padding-left: 5px;
+}
+
+.startagain {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.startagain:hover {
+  cursor: pointer;
 }
 
 .hideIcon {
