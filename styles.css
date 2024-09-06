@@ -184,13 +184,18 @@ button {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(700px);
   width: 370px;
-  height: 90vh;
+  height: 80vh;
   position: absolute;
   bottom: 15px;
   right: 15px;
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.5s;
+}
+@media (min-width: 800px) {
+  .body .section__chatbox {
+    height: 90vh;
+  }
 }
 .body .section__chatbox .top {
   display: flex;

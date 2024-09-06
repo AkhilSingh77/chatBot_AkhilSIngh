@@ -76,7 +76,8 @@ crossIconMain.addEventListener("click", () => {
 
   mainChatbox.classList.remove("transition-sectionMainElementUP");
   sectionMainElement.classList.remove("transition-sectionMainElement");
-  // middleMessageElement.textContent ='';
+  middleMessageElement.innerHTML ='';
+  middleBottomEelement.classList.toggle("displayNone");
   alreadySearched = false;
 
   isCity = true;

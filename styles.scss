@@ -37,7 +37,7 @@
       gap: pxtorem(10px);
      
             &__login{
-              background-color: white;
+              background-color: $white-color;
               border: 1.5px solid black;
               border-radius: pxtorem(5px);
               padding: pxtorem(10px) pxtorem(20px);
@@ -53,7 +53,7 @@
             &__signup{
               background-color: rgb(249, 39, 39);
              font-weight:700;
-              color: white;
+              color: $white-color;
               border-radius: pxtorem(5px);
               padding: pxtorem(12px) pxtorem(20px);
               @include flexRow(center,center);
@@ -85,7 +85,7 @@
       @include flexColumn(flex-start,flex-end);
       gap: pxtorem(10px);
       &--detail{
-        background-color: white;
+        background-color: $white-color;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         width: pxtorem(250px);
@@ -119,23 +119,26 @@
    }
   }
   &__chatbox{
-    background-color: white;
+    background-color: $white-color;
 
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 
     transform: translateY(700px);
 
     width:370px ;
-    height: 90vh;
+    height: 80vh;
     position: absolute;
     bottom: 15px;
     right: 15px;
     border-radius: 15px;
     overflow: hidden;
     transition: all 0.5s;
+    @media (min-width: 800px) {
+     height: 90vh;
+    }
     .top{
       @include flexRow(space-between);
-      background-color: white;
+      background-color: $white-color;
       padding: pxtorem(17px) pxtorem(17px);
       
       &__left{
@@ -157,7 +160,7 @@
             height: 10px;
             border-radius: 50%;
             background-color: rgb(20, 234, 20);
-            border: 1px solid white;
+            border: 1px solid $white-color;
            
           }
         }
@@ -200,13 +203,13 @@
           }
         }
         &--head1{
-          background-color: white;
+          background-color: $white-color;
           padding: pxtorem(10px) pxtorem(15px);
           border-radius: 15px 15px 15px 0px;
           width: fit-content;
         }
         &--head2{
-          background-color: white;
+          background-color: $white-color;
           padding: pxtorem(15px) pxtorem(15px);
           border-radius: 0px 15px 15px 15px;
           width: fit-content
@@ -221,7 +224,7 @@
             gap:7px
           }
           .tag ,  .second-tag {
-            background-color: white;
+            background-color: $white-color;
             border: 1px solid blue;
             color: $tag-color;
             width: fit-content;
@@ -245,7 +248,7 @@
             &--temp{
               background-color: $tag-color;
               border: 1px solid $tag-color;
-              color: white;
+              color: $white-color;
               width: fit-content;
               font-size: pxtorem(17px);
               font-weight: 500;
@@ -267,7 +270,7 @@
             
             }
             .detail{
-              background-color: white;
+              background-color: $white-color;
               width: fit-content;
       padding: pxtorem(10px) pxtorem(5px);
       border-radius: 10px 10px 10px 0px;
@@ -278,7 +281,7 @@
               .singleButton{
                 padding: pxtorem(5px) pxtorem(15px);
                 border: 1px solid $tag-color;
-                background-color: white;
+                background-color: $white-color;
                 border-radius: 10px;
                 color: $tag-color;
               }
@@ -290,7 +293,7 @@
         }
     }
     .inputBox{
-      background-color: white;
+      background-color: $white-color;
       padding: pxtorem(11px) pxtorem(25px);
       @include flexRow(space-between,center);
   
@@ -312,7 +315,7 @@
       
 
 
-      background-color: white;
+      background-color: $white-color;
       font-size: 14px;
       line-height: 16px;
       font-weight: 600;
@@ -340,7 +343,7 @@
 .startagain{
   width: fit-content;
   background-color: $tag-color;
-  color: white;
+  color: $white-color;
   padding: 10px 20px;
   margin: 0 auto;
 }
