@@ -6,7 +6,7 @@
 .body{
   height: 100vh;
   overflow: hidden;
-  
+  scroll-behavior: smooth;
   .header{
     @include flexRow(space-between,center);
     height: pxtorem(80px);
@@ -69,10 +69,11 @@
 
 .section{
   height: calc(100vh - pxtorem(80px));
-  // background-color: rgb(22, 38, 129);
+ 
 
  position: relative;
   &__main{
+    scroll-behavior: smooth;
    @include flexColumn(flex-start,flex-end);
     transition: all 0.5s ease;
    gap: pxtorem(10px);
@@ -85,10 +86,15 @@
       gap: pxtorem(10px);
       &--detail{
         background-color: white;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         width: pxtorem(250px);
         padding: pxtorem(10px) pxtorem(10px);
+        transition: box-shadow 0.3s, opacity 0.3s;
+      }
+      &--detail:hover{
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.17);
+        cursor: pointer;
       }
         .icon--cross{
       scale: 1.1;
@@ -115,16 +121,16 @@
   &__chatbox{
     background-color: white;
 
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    // display: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
     transform: translateY(700px);
-    // transition: all 0.1s ease;
+
     width:370px ;
     height: 90vh;
     position: absolute;
     bottom: 15px;
     right: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     transition: all 0.5s;
     .top{
@@ -172,6 +178,7 @@
       }
     }
     .middle{
+      scroll-behavior: smooth;
       height: 65%;
       max-height: 65% ;
       overflow-y: auto;
@@ -213,13 +220,14 @@
             @include flexRow();
             gap:7px
           }
-          .tag{
+          .tag ,  .second-tag {
             background-color: white;
             border: 1px solid blue;
             color: $tag-color;
             width: fit-content;
-            font-size: pxtorem(17px);
+            font-size: pxtorem(16.6px);
             font-weight: 600;
+            line-height: 20px;
             border-radius: 50px;
             padding: pxtorem(5px) pxtorem(15px);
           }
@@ -283,9 +291,9 @@
     }
     .inputBox{
       background-color: white;
-      padding: pxtorem(15px) pxtorem(25px);
+      padding: pxtorem(11px) pxtorem(25px);
       @include flexRow(space-between,center);
-      border-bottom: 1px solid rgb(184, 184, 184);
+  
       &--input{
         width: 70%;
       }
@@ -303,9 +311,21 @@
     .bottom{
       
 
-      @include flexRow(center,center);
+
       background-color: white;
-      padding-top: 10px;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgb(238, 238, 238);
+      background-color: rgb(249, 249, 249);
+      height: 35px;
+   
+      &--copyright{
+        color: rgb(155, 166, 179);
+      }
       &--chatbot{
         color: $tag-color;
         padding-left: 5px;
@@ -336,7 +356,6 @@
 }
 
 .displayNone{
-  // transform: translateY(100%);
   display: none !important;
 }
 

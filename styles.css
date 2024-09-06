@@ -46,6 +46,7 @@ button {
 .body {
   height: 100vh;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 .body .header {
   display: flex;
@@ -130,6 +131,7 @@ button {
   position: relative;
 }
 .body .section__main {
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -149,10 +151,15 @@ button {
 }
 .body .section__main__top--detail {
   background-color: white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 15.625rem;
   padding: 0.625rem 0.625rem;
+  transition: box-shadow 0.3s, opacity 0.3s;
+}
+.body .section__main__top--detail:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.17);
+  cursor: pointer;
 }
 .body .section__main__top .icon--cross {
   scale: 1.1;
@@ -174,14 +181,14 @@ button {
 }
 .body .section__chatbox {
   background-color: white;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(700px);
   width: 370px;
   height: 90vh;
   position: absolute;
   bottom: 15px;
   right: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   transition: all 0.5s;
 }
@@ -233,6 +240,7 @@ button {
   cursor: pointer;
 }
 .body .section__chatbox .middle {
+  scroll-behavior: smooth;
   height: 65%;
   max-height: 65%;
   overflow-y: auto;
@@ -292,14 +300,15 @@ button {
   align-items: stretch;
   gap: 7px;
 }
-.body .section__chatbox .middle__bottom .tag {
+.body .section__chatbox .middle__bottom .tag, .body .section__chatbox .middle__bottom .second-tag {
   background-color: white;
   border: 1px solid blue;
   color: rgb(0, 102, 255);
   width: -moz-fit-content;
   width: fit-content;
-  font-size: 1.0625rem;
+  font-size: 1.0375rem;
   font-weight: 600;
+  line-height: 20px;
   border-radius: 50px;
   padding: 0.3125rem 0.9375rem;
 }
@@ -376,12 +385,11 @@ button {
 }
 .body .section__chatbox .inputBox {
   background-color: white;
-  padding: 0.9375rem 1.5625rem;
+  padding: 0.6875rem 1.5625rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(184, 184, 184);
 }
 .body .section__chatbox .inputBox--input {
   width: 70%;
@@ -400,12 +408,19 @@ button {
   height: 1.5625rem;
 }
 .body .section__chatbox .bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   background-color: white;
-  padding-top: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgb(238, 238, 238);
+  background-color: rgb(249, 249, 249);
+  height: 35px;
+}
+.body .section__chatbox .bottom--copyright {
+  color: rgb(155, 166, 179);
 }
 .body .section__chatbox .bottom--chatbot {
   color: rgb(0, 102, 255);

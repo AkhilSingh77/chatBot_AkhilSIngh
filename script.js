@@ -6,6 +6,8 @@ let inputData;
 let saveId;
 let showDetail;
 let isCity = true;
+let alreadySearched = false;
+let currentCityName;
 
 async function callApi(city) {
   const response = await fetch(
@@ -15,20 +17,23 @@ async function callApi(city) {
   if (!response.ok) {
     console.log("not ");
     isCity = false;
+
     searchEnable(city);
   } else {
     const data = await response.json();
     isCity = true;
-    // console.log(data);
-    console.log("Temperature:", data.main.temp, "°C");
+    alreadySearched = true;
+  
+
     temperature = `${data.main.temp} °C`;
-    console.log("Wind Speed:", data.wind.speed, "m/s");
+
     wind = `${data.wind.speed} m/s `;
-    console.log("Time:", new Date(data.dt * 1000).toLocaleTimeString());
+
     time = new Date(data.dt * 1000).toLocaleTimeString();
-    console.log("Weather Status:", data.weather[0].description);
+
     weatherStatus = data.weather[0].description;
     inputElement.disabled = true;
+    currentCityName = city;
     searchEnable(city);
   }
 }
@@ -68,9 +73,13 @@ croosIcon.addEventListener("click", () => {
 
 crossIconMain.addEventListener("click", () => {
   // mainChatbox.classList.toggle("showIcon");
+
   mainChatbox.classList.remove("transition-sectionMainElementUP");
   sectionMainElement.classList.remove("transition-sectionMainElement");
   // middleMessageElement.textContent ='';
+  alreadySearched = false;
+
+  isCity = true;
   mainTop.classList.remove("hideIcon");
 });
 
@@ -94,6 +103,7 @@ allTagElement.forEach((single) => {
     searchEnable(e.target.id);
     midddleElement.scrollTop = midddleElement.scrollHeight;
     inputElement.disabled = false;
+
   });
 });
 
@@ -150,113 +160,34 @@ function searchEnable(id) {
     id === "weather" ||
     id === "wind"
   ) {
-    detailDiv.textContent =
-      "Please enter your city name in the typing area! 😊";
-    middleMessageChatMssge.appendChild(detailDiv);
-  } else {
-    if (isCity) {
-      const detailSecondDiv = document.createElement("div");
-      detailSecondDiv.classList.add("detail");
-
-      if (showDetail === "temperature") {
-        detailSecondDiv.textContent = temperature;
-      } else if (showDetail === "time") {
-        detailSecondDiv.textContent = time;
-      } else if (showDetail === "weather") {
-        detailSecondDiv.textContent = weatherStatus;
-      } else if (showDetail === "wind") {
-        detailSecondDiv.textContent = wind;
-      }
-      detailDiv.textContent = "Looking for something Else";
-
-      const allButtonsDiv = document.createElement("div");
-      allButtonsDiv.classList.add("allbuttons");
-
-      const yesButton = document.createElement("button");
-      yesButton.classList.add("allbuttons--yes", "singleButton");
-      yesButton.textContent = "Yes";
-      yesButton.addEventListener("click", () => {
-        const middleMessageChatMssge = document.createElement("div");
-        middleMessageChatMssge.classList.add("middle__message__chatMssge");
-
-        const chatwithImageDiv = document.createElement("div");
-        chatwithImageDiv.classList.add("chatwithImage");
-
-        const chatImage = document.createElement("img");
-        chatImage.src =
-          "https://calm-elf-974df4.netlify.app/images/chat-icon.png";
-        chatImage.alt = "";
-        chatImage.classList.add("chatwithImage--image");
-
-        const chatParagraph = document.createElement("p");
-        chatParagraph.classList.add("chatwithImage--chat");
-        chatParagraph.textContent = "ChatBot";
-
-        chatwithImageDiv.appendChild(chatImage);
-        chatwithImageDiv.appendChild(chatParagraph);
-
-        const detailDiv = document.createElement("div");
-        detailDiv.classList.add("detail");
-        detailDiv.textContent = `${id} or Any other City?`;
-
-        const allButtonsDiv = document.createElement("div");
-        allButtonsDiv.classList.add("allbuttons");
-
-        const yesButton = document.createElement("button");
-        yesButton.classList.add("allbuttons--yes", "singleButton");
-        yesButton.textContent = `${id}`;
-        yesButton.addEventListener("click", () => {
-          createInformation();
-        });
-
-        const noButton = document.createElement("button");
-        noButton.classList.add("allbuttons--no", "singleButton");
-        noButton.textContent = "Other";
-
-        allButtonsDiv.appendChild(yesButton);
-        allButtonsDiv.appendChild(noButton);
-
-        middleMessageChatMssge.appendChild(chatwithImageDiv);
-        middleMessageChatMssge.appendChild(detailDiv);
-        middleMessageChatMssge.appendChild(allButtonsDiv);
-        middleMessageElement.appendChild(middleMessageChatMssge);
-        midddleElement.scrollTop = midddleElement.scrollHeight;
-      });
-
-      const noButton = document.createElement("button");
-      noButton.classList.add("allbuttons--no", "singleButton");
-      noButton.textContent = "No";
-      noButton.addEventListener("click", () => {
-        chatwithImageDiv.appendChild(chatImage);
-        chatwithImageDiv.appendChild(chatParagraph);
-        const detailDiv = document.createElement("div");
-        detailDiv.classList.add("detail");
-        detailDiv.textContent = `Thank You! 😊`;
-        const buttonElement = document.createElement("button");
-        buttonElement.textContent = "Start the Chat again";
-        buttonElement.classList.add("startagain");
-        buttonElement.addEventListener("click", () => {
-          location.reload();
-        });
-
-        middleMessageChatMssge.appendChild(chatwithImageDiv);
-        middleMessageChatMssge.appendChild(detailDiv);
-        middleMessageChatMssge.appendChild(buttonElement);
-        midddleElement.scrollTop = midddleElement.scrollHeight;
-      });
-
-      allButtonsDiv.appendChild(yesButton);
-      allButtonsDiv.appendChild(noButton);
-
-      middleMessageChatMssge.appendChild(detailSecondDiv);
-
+    console.log("alreadySearched", alreadySearched);
+    if (!alreadySearched) {
+      detailDiv.textContent =
+        "Please enter your city name in the typing area! 😊";
       middleMessageChatMssge.appendChild(detailDiv);
-
-      middleMessageChatMssge.appendChild(allButtonsDiv);
     } else {
-      detailDiv.textContent = "Please enter a valid city Name";
-      middleMessageChatMssge.appendChild(detailDiv);
+     
+      isss(
+        isCity,
+        detailDiv,
+        middleMessageChatMssge,
+        id,
+        chatwithImageDiv,
+        chatImage,
+        chatParagraph
+      );
     }
+  } else {
+    
+    isss(
+      isCity,
+      detailDiv,
+      middleMessageChatMssge,
+      id,
+      chatwithImageDiv,
+      chatImage,
+      chatParagraph
+    );
   }
 
   middleMessageElement.appendChild(middleMessageInput);
@@ -279,12 +210,12 @@ function createInformation() {
   temptimeDiv.classList.add("middle__bottom__temptime", "temptime");
 
   const tempDiv = document.createElement("div");
-  tempDiv.classList.add("temptime__temp", "tag");
+  tempDiv.classList.add("temptime__temp", "tag", "second-tag");
   tempDiv.id = "temperature";
   tempDiv.textContent = "🌡️ Temperature";
 
   const timeDiv = document.createElement("div");
-  timeDiv.classList.add("temptime__time", "tag");
+  timeDiv.classList.add("temptime__time", "tag", "second-tag");
   timeDiv.id = "time";
   timeDiv.textContent = "🕛 Time";
 
@@ -292,12 +223,12 @@ function createInformation() {
   temptimeDiv.appendChild(timeDiv);
 
   const windDiv = document.createElement("div");
-  windDiv.classList.add("middle__bottom__wind", "tag");
+  windDiv.classList.add("middle__bottom__wind", "tag", "second-tag");
   windDiv.id = "wind";
   windDiv.textContent = "🎐 Wind Speed";
 
   const weatherDiv = document.createElement("div");
-  weatherDiv.classList.add("middle__bottom__weather", "tag");
+  weatherDiv.classList.add("middle__bottom__weather", "tag", "second-tag");
   weatherDiv.id = "weather";
   weatherDiv.textContent = "⛅ Weather Status";
 
@@ -308,5 +239,154 @@ function createInformation() {
 
   middleChatMssge.appendChild(middleBottom);
   middleMessageElement.appendChild(middleChatMssge);
+  midddleElement.scrollTop = midddleElement.scrollHeight;
+
+  const secondTag = document.querySelectorAll(".second-tag");
+  secondTag.forEach((single) => {
+    single.addEventListener("click", (e) => {
+      console.log("single");
+      (isCity = true), (showDetail = e.target.id);
+      searchEnable(e.target.id);
+      midddleElement.scrollTop = midddleElement.scrollHeight;
+      inputElement.disabled = false;
+    });
+  });
+}
+
+function isss(
+  isCity,
+  detailDiv,
+  middleMessageChatMssge,
+  id,
+  chatwithImageDiv,
+  chatImage,
+  chatParagraph
+) {
+  if (isCity) {
+    const detailSecondDiv = document.createElement("div");
+    detailSecondDiv.classList.add("detail");
+
+    if (showDetail === "temperature") {
+      detailSecondDiv.textContent = temperature;
+    } else if (showDetail === "time") {
+      detailSecondDiv.textContent = time;
+    } else if (showDetail === "weather") {
+      detailSecondDiv.textContent = weatherStatus;
+    } else if (showDetail === "wind") {
+      detailSecondDiv.textContent = wind;
+    }
+    detailDiv.textContent = "Looking for something Else";
+
+    const allButtonsDiv = document.createElement("div");
+    allButtonsDiv.classList.add("allbuttons");
+
+    const yesButton = document.createElement("button");
+    yesButton.classList.add("allbuttons--yes", "singleButton");
+    yesButton.textContent = "Yes";
+    yesButton.addEventListener("click", () => {
+      const middleMessageChatMssge = document.createElement("div");
+      middleMessageChatMssge.classList.add("middle__message__chatMssge");
+
+      const chatwithImageDiv = document.createElement("div");
+      chatwithImageDiv.classList.add("chatwithImage");
+
+      const chatImage = document.createElement("img");
+      chatImage.src =
+        "https://calm-elf-974df4.netlify.app/images/chat-icon.png";
+      chatImage.alt = "";
+      chatImage.classList.add("chatwithImage--image");
+
+      const chatParagraph = document.createElement("p");
+      chatParagraph.classList.add("chatwithImage--chat");
+      chatParagraph.textContent = "ChatBot";
+
+      chatwithImageDiv.appendChild(chatImage);
+      chatwithImageDiv.appendChild(chatParagraph);
+
+      const detailDiv = document.createElement("div");
+      detailDiv.classList.add("detail");
+      if (alreadySearched) {
+        detailDiv.textContent = `${currentCityName} or Any other City?`;
+      } else {
+        detailDiv.textContent = `${id} or Any other City?`;
+      }
+
+      const allButtonsDiv = document.createElement("div");
+      allButtonsDiv.classList.add("allbuttons");
+
+      const yesButton = document.createElement("button");
+      yesButton.classList.add("allbuttons--yes", "singleButton");
+
+      if (alreadySearched) {
+        yesButton.textContent = `${currentCityName}`;
+      } else {
+        yesButton.textContent = `${id}`;
+      }
+      yesButton.addEventListener("click", () => {
+        allButtonsDiv.classList.toggle("displayNone");
+        createInformation();
+        inputElement.disabled = true;
+      });
+
+      const noButton = document.createElement("button");
+      noButton.classList.add("allbuttons--no", "singleButton");
+      noButton.textContent = "Other";
+      noButton.addEventListener("click", () => {
+        alreadySearched = false;
+        isCity = true;
+        createInformation();
+
+        midddleElement.scrollTop = midddleElement.scrollHeight;
+        inputElement.disabled = false;
+      });
+
+      allButtonsDiv.appendChild(yesButton);
+      allButtonsDiv.appendChild(noButton);
+
+      middleMessageChatMssge.appendChild(chatwithImageDiv);
+      middleMessageChatMssge.appendChild(detailDiv);
+      middleMessageChatMssge.appendChild(allButtonsDiv);
+      middleMessageElement.appendChild(middleMessageChatMssge);
+      midddleElement.scrollTop = midddleElement.scrollHeight;
+    });
+
+    const noButton = document.createElement("button");
+    noButton.classList.add("allbuttons--no", "singleButton");
+    noButton.textContent = "No";
+    noButton.addEventListener("click", () => {
+      chatwithImageDiv.appendChild(chatImage);
+      chatwithImageDiv.appendChild(chatParagraph);
+      const detailDiv = document.createElement("div");
+      detailDiv.classList.add("detail");
+      detailDiv.textContent = `Thank You! 😊`;
+      const buttonElement = document.createElement("button");
+      buttonElement.textContent = "Start the Chat again";
+      buttonElement.classList.add("startagain");
+      buttonElement.addEventListener("click", () => {
+        middleMessageElement.innerHTML = "";
+        middleBottomEelement.classList.toggle("displayNone");
+        alreadySearched = false;
+        isCity = true;
+        inputElement.disabled = true;
+      });
+
+      middleMessageChatMssge.appendChild(chatwithImageDiv);
+      middleMessageChatMssge.appendChild(detailDiv);
+      middleMessageChatMssge.appendChild(buttonElement);
+      midddleElement.scrollTop = midddleElement.scrollHeight;
+    });
+
+    allButtonsDiv.appendChild(yesButton);
+    allButtonsDiv.appendChild(noButton);
+
+    middleMessageChatMssge.appendChild(detailSecondDiv);
+
+    middleMessageChatMssge.appendChild(detailDiv);
+
+    middleMessageChatMssge.appendChild(allButtonsDiv);
+  } else {
+    detailDiv.textContent = "Please enter a valid city Name";
+    middleMessageChatMssge.appendChild(detailDiv);
+  }
   midddleElement.scrollTop = midddleElement.scrollHeight;
 }
