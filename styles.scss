@@ -4,6 +4,8 @@
 @import "scss-components/mixin";
 
 .body{
+  height: 100vh;
+  overflow: hidden;
   
   .header{
     @include flexRow(space-between,center);
@@ -12,10 +14,13 @@
     border: 1px solid rgb(223, 221, 221);
   
     &__nav{
-      
+     
       padding-bottom: pxtorem(5px);
       width: 40%;
-      @include flexRow(space-between,center);
+     display: none;
+      @media (min-width: 1000px) {
+        @include flexRow(space-between,center);
+      }
    
       &__item{
         @include flexRow(flex-start,center);
@@ -26,6 +31,7 @@
         }
       }
     }
+
     &__allbuttons{
       @include flexRow(center,center);
       gap: pxtorem(10px);
@@ -39,6 +45,10 @@
               gap: pxtorem(5px);
               font-weight:700;
               font-size: pxtorem(14px);
+              @media (max-width:600px) {
+                padding: pxtorem(10px) pxtorem(10px);
+                font-size: pxtorem(12px);
+              }
             }
             &__signup{
               background-color: rgb(249, 39, 39);
@@ -49,6 +59,10 @@
               @include flexRow(center,center);
               gap: pxtorem(5px);
               font-size: pxtorem(14px);
+              @media (max-width:600px) {
+                padding: pxtorem(10px) pxtorem(10px);
+                font-size: pxtorem(12px);
+              }
             }
     }
   }
@@ -60,11 +74,11 @@
  position: relative;
   &__main{
    @include flexColumn(flex-start,flex-end);
-   
+    transition: all 0.5s ease;
    gap: pxtorem(10px);
     position: absolute;
     bottom: 15px;
-    right: 10px;
+    right: 15px;
     &__top{
    
       @include flexColumn(flex-start,flex-end);
@@ -102,7 +116,9 @@
     background-color: white;
 
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    display: none;
+    // display: none;
+    transform: translateY(700px);
+    // transition: all 0.1s ease;
     width:370px ;
     height: 90vh;
     position: absolute;
@@ -110,7 +126,7 @@
     right: 15px;
     border-radius: 10px;
     overflow: hidden;
-    transition: all 3s;
+    transition: all 0.5s;
     .top{
       @include flexRow(space-between);
       background-color: white;
@@ -267,6 +283,10 @@
       &--search:hover{
         cursor: pointer;
       }
+      &--search--icon{
+        width: pxtorem(25px);
+        height: pxtorem(25px);
+      }
     }
     .bottom{
       
@@ -306,4 +326,12 @@
 .displayNone{
   // transform: translateY(100%);
   display: none !important;
+}
+
+.transition-sectionMainElement{
+  transform: translateY(300px) !important;
+}
+.transition-sectionMainElementUP{
+  transform: translateY(
+    0px) !important;
 }

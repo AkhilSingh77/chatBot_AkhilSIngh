@@ -69,16 +69,18 @@ croosIcon.addEventListener("click", () => {
 });
 
 crossIconMain.addEventListener('click',()=>{
-  mainChatbox.classList.toggle("showIcon");
-  sectionMainElement.classList.toggle('displayNone');
+   // mainChatbox.classList.toggle("showIcon");
+   mainChatbox.classList.remove("transition-sectionMainElementUP");
+  sectionMainElement.classList.remove('transition-sectionMainElement');
   // middleMessageElement.textContent ='';
   mainTop.classList.remove("hideIcon");
 })
 
 messageImage.addEventListener("click", () => {
 
-  mainChatbox.classList.toggle("showIcon");
-  sectionMainElement.classList.toggle('displayNone');
+  // mainChatbox.classList.toggle("showIcon");
+  mainChatbox.classList.add("transition-sectionMainElementUP");
+  sectionMainElement.classList.toggle('transition-sectionMainElement');
 });
 
 searchElement.addEventListener('click',()=>{
