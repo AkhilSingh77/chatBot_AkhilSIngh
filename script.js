@@ -168,7 +168,7 @@ function searchEnable(id) {
       middleMessageChatMssge.appendChild(detailDiv);
     } else {
      
-      isss(
+      showFunctionality(
         isCity,
         detailDiv,
         middleMessageChatMssge,
@@ -180,7 +180,7 @@ function searchEnable(id) {
     }
   } else {
     
-    isss(
+    showFunctionality(
       isCity,
       detailDiv,
       middleMessageChatMssge,
@@ -254,7 +254,7 @@ function createInformation() {
   });
 }
 
-function isss(
+function showFunctionality(
   isCity,
   detailDiv,
   middleMessageChatMssge,
