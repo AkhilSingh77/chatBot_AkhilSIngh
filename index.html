@@ -63,7 +63,7 @@
         <div class="section__main__top">
           <i class="fa-solid fa-circle-xmark icon--cross"></i>
           <p class="section__main__top--detail">
-           🙌 Welcome back! How may I help you today?🤖
+            🙌 Welcome back! How may I help you today?🤖
           </p>
         </div>
         <img
@@ -75,50 +75,54 @@
       <div class="section__chatbox">
         <div class="section__chatbox__top top">
           <div class="top__left">
-        <div class="top__left__imgBox">
-          <img
-          src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
-          alt="logo"
-          class="top__left__imgBox--img"
-        />
+            <div class="top__left__imgBox">
+              <img
+                src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
+                alt="logo"
+                class="top__left__imgBox--img"
+              />
+              <div class="top__left__imgBox--live"></div>
+            </div>
+            <div class="top__left__chatHead">
+              <div class="top__left__chatHead--chatbot">ChatBot</div>
+              <div class="top__left__chatHead--online">Online</div>
+            </div>
+          </div>
+          <div class="top__right">
+            <i class="fa-solid fa-xmark top__right--cross"></i>
+          </div>
         </div>
-        <div class="top__left__chatHead">
-          <div class="top__left__chatHead--chatbot">ChatBot</div>
-          <div class="top__left__chatHead--online">Online</div>
-        </div>
-        </div>
-        <div class="top__right">
-          <i class="fa-solid fa-xmark top__right--cross"></i>
-        </div>
-      </div>
-      <div class="middle">
-            <div class="middle__top">
-              <div class="middle__top__imgBox">
-                <img
+        <div class="middle">
+          <div class="middle__top">
+            <div class="middle__top__imgBox">
+              <img
                 src="	https://calm-elf-974df4.netlify.app/images/chat-icon.png"
                 alt="logo"
                 class="middle__top__imgBox--img"
               />
               <p class="middle__top__imgBox--chat">ChatBot</p>
-              </div>
-              <div class="middle__top--head1">Hi! I'm Mr. Chatbot 😎 Nice to meet you! 👋             
-              </div>
-              <div class="middle__top--head2">What information are you looking for?           
-              </div>
             </div>
-            <div class="middle__bottom">
-              <div class="middle__bottom__temptime temptime">
-
-                <div class="temptime__temp tag" id="temperature">🌡️ Temperature</div>
-                <div class="temptime__time tag" id="time">🕛 Time</div>
-              </div>
-              <div class="middle__bottom__wind tag" id="wind">🎐Wind Speed
-              </div>
-              <div class="middle__bottom__weather tag" id="weather">⛅ Weather Status
-              </div>
+            <div class="middle__top--head1">
+              Hi! I'm Mr. Chatbot 😎 Nice to meet you! 👋
             </div>
-            <div class="middle__message">
-               <!-- <div class="middle__message__input">
+            <div class="middle__top--head2">
+              What information are you looking for?
+            </div>
+          </div>
+          <div class="middle__bottom">
+            <div class="middle__bottom__temptime temptime">
+              <div class="temptime__temp tag" id="temperature">
+                🌡️ Temperature
+              </div>
+              <div class="temptime__time tag" id="time">🕛 Time</div>
+            </div>
+            <div class="middle__bottom__wind tag" id="wind">🎐Wind Speed</div>
+            <div class="middle__bottom__weather tag" id="weather">
+              ⛅ Weather Status
+            </div>
+          </div>
+          <div class="middle__message">
+            <!-- <div class="middle__message__input">
                 <p class="middle__message__input--you">You</p>
                 <div class="middle__message__input--temp ">
                   🌡️ Temperature
@@ -141,23 +145,34 @@
                   <button class="allbuttons--no singleButton">No</button>
                 </div>
                </div> -->
-            </div>
+          </div>
+        </div>
+        <div class="inputBox">
+          <input
+            type="text"
+            placeholder="Type your message here"
+            maxlength="256"
+            class="inputBox--input"
+          />
+
+          <div class="inputBox--search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              xml:space="preserve"
+              class="inputBox--search--icon"
+            >
+              <path
+                fill="#d7d7d7"
+                d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="bottom">
+          Powered by <span class="bottom--chatbot"> Chatbot </span>
+        </div>
       </div>
-      <div class="inputBox">
-        <input type="text" placeholder="Type your message here" maxlength="256" class="inputBox--input" >
-        <!-- <i class="fa-solid fa-magnifying-glass "></i> -->
-         <div class="inputBox--search">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve" class="inputBox--search--icon" >
-            <path fill="#d7d7d7" d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z"></path>
-          </svg>
-         </div>
-       
-      </div>
-      <div class="bottom">
-        Powered by <span class="bottom--chatbot"> Chatbot </span>
-      </div>
-      </div>
-     
     </section>
 
     <script src="script.js"></script>

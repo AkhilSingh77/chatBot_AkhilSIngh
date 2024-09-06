@@ -200,10 +200,23 @@ button {
   align-items: center;
   gap: 1.25rem;
 }
+.body .section__chatbox .top__left__imgBox {
+  position: relative;
+}
 .body .section__chatbox .top__left__imgBox--img {
   width: 55px;
   height: 55px;
   border-radius: 50%;
+}
+.body .section__chatbox .top__left__imgBox--live {
+  position: absolute;
+  right: 0;
+  bottom: 0.625rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(20, 234, 20);
+  border: 1px solid white;
 }
 .body .section__chatbox .top__left__chatHead {
   padding-bottom: 0.3125rem;

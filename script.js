@@ -41,7 +41,7 @@ const mainChatbox = document.querySelector(".section__chatbox");
 const temperatureTagElement = document.querySelector(".temptime__temp");
 const timeTagElement = document.querySelector(".temptime__time");
 const weatherTagElement = document.querySelector(".middle__bottom__weather");
-const crossIconMain = document.querySelector('.top__right--cross');
+const crossIconMain = document.querySelector(".top__right--cross");
 
 const allTagElement = document.querySelectorAll(".tag");
 
@@ -49,11 +49,10 @@ const middleMessageElement = document.querySelector(".middle__message");
 const middleBottomEelement = document.querySelector(".middle__bottom");
 const midddleElement = document.querySelector(".middle");
 const inputElement = document.querySelector(".inputBox--input");
-const searchElement = document.querySelector('.inputBox--search');
+const searchElement = document.querySelector(".inputBox--search");
 inputElement.disabled = true;
 
 inputElement.addEventListener("input", () => {
-
   inputData = inputElement.value.trim();
 });
 inputElement.addEventListener("keydown", (event) => {
@@ -64,36 +63,32 @@ inputElement.addEventListener("keydown", (event) => {
 });
 
 croosIcon.addEventListener("click", () => {
-
   mainTop.classList.add("hideIcon");
 });
 
-crossIconMain.addEventListener('click',()=>{
-   // mainChatbox.classList.toggle("showIcon");
-   mainChatbox.classList.remove("transition-sectionMainElementUP");
-  sectionMainElement.classList.remove('transition-sectionMainElement');
+crossIconMain.addEventListener("click", () => {
+  // mainChatbox.classList.toggle("showIcon");
+  mainChatbox.classList.remove("transition-sectionMainElementUP");
+  sectionMainElement.classList.remove("transition-sectionMainElement");
   // middleMessageElement.textContent ='';
   mainTop.classList.remove("hideIcon");
-})
-
-messageImage.addEventListener("click", () => {
-
-  // mainChatbox.classList.toggle("showIcon");
-  mainChatbox.classList.add("transition-sectionMainElementUP");
-  sectionMainElement.classList.toggle('transition-sectionMainElement');
 });
 
-searchElement.addEventListener('click',()=>{
-  if(inputElement.value !== ''){
+messageImage.addEventListener("click", () => {
+  // mainChatbox.classList.toggle("showIcon");
+  mainChatbox.classList.add("transition-sectionMainElementUP");
+  sectionMainElement.classList.toggle("transition-sectionMainElement");
+});
+
+searchElement.addEventListener("click", () => {
+  if (inputElement.value !== "") {
     callApi(inputData);
     inputElement.value = "";
   }
- 
-})
+});
 
 allTagElement.forEach((single) => {
   single.addEventListener("click", (e) => {
-
     middleBottomEelement.classList.toggle("displayNone");
     showDetail = e.target.id;
     searchEnable(e.target.id);
@@ -153,14 +148,12 @@ function searchEnable(id) {
     id === "temperature" ||
     id === "time" ||
     id === "weather" ||
-    id === "wind")
-   { 
+    id === "wind"
+  ) {
     detailDiv.textContent =
       "Please enter your city name in the typing area! 😊";
-      middleMessageChatMssge.appendChild(detailDiv);
-  } 
-  else {
-
+    middleMessageChatMssge.appendChild(detailDiv);
+  } else {
     if (isCity) {
       const detailSecondDiv = document.createElement("div");
       detailSecondDiv.classList.add("detail");
@@ -175,7 +168,6 @@ function searchEnable(id) {
         detailSecondDiv.textContent = wind;
       }
       detailDiv.textContent = "Looking for something Else";
-   
 
       const allButtonsDiv = document.createElement("div");
       allButtonsDiv.classList.add("allbuttons");
@@ -183,81 +175,75 @@ function searchEnable(id) {
       const yesButton = document.createElement("button");
       yesButton.classList.add("allbuttons--yes", "singleButton");
       yesButton.textContent = "Yes";
-      yesButton.addEventListener('click',()=>{
-       
-     
-  const middleMessageChatMssge = document.createElement("div");
-  middleMessageChatMssge.classList.add("middle__message__chatMssge");
+      yesButton.addEventListener("click", () => {
+        const middleMessageChatMssge = document.createElement("div");
+        middleMessageChatMssge.classList.add("middle__message__chatMssge");
 
-  const chatwithImageDiv = document.createElement("div");
-  chatwithImageDiv.classList.add("chatwithImage");
+        const chatwithImageDiv = document.createElement("div");
+        chatwithImageDiv.classList.add("chatwithImage");
 
-  const chatImage = document.createElement("img");
-  chatImage.src = "https://calm-elf-974df4.netlify.app/images/chat-icon.png";
-  chatImage.alt = "";
-  chatImage.classList.add("chatwithImage--image");
+        const chatImage = document.createElement("img");
+        chatImage.src =
+          "https://calm-elf-974df4.netlify.app/images/chat-icon.png";
+        chatImage.alt = "";
+        chatImage.classList.add("chatwithImage--image");
 
-  const chatParagraph = document.createElement("p");
-  chatParagraph.classList.add("chatwithImage--chat");
-  chatParagraph.textContent = "ChatBot";
+        const chatParagraph = document.createElement("p");
+        chatParagraph.classList.add("chatwithImage--chat");
+        chatParagraph.textContent = "ChatBot";
 
-  chatwithImageDiv.appendChild(chatImage);
-  chatwithImageDiv.appendChild(chatParagraph);
+        chatwithImageDiv.appendChild(chatImage);
+        chatwithImageDiv.appendChild(chatParagraph);
 
-  const detailDiv = document.createElement("div");
-  detailDiv.classList.add("detail");
-detailDiv.textContent=`${id} or Any other City?`;
+        const detailDiv = document.createElement("div");
+        detailDiv.classList.add("detail");
+        detailDiv.textContent = `${id} or Any other City?`;
 
-const allButtonsDiv = document.createElement('div');
-allButtonsDiv.classList.add('allbuttons');
+        const allButtonsDiv = document.createElement("div");
+        allButtonsDiv.classList.add("allbuttons");
 
-const yesButton = document.createElement('button');
-yesButton.classList.add('allbuttons--yes', 'singleButton');
-yesButton.textContent = `${id}`;
-yesButton.addEventListener('click',()=>{
-  createInformation();
+        const yesButton = document.createElement("button");
+        yesButton.classList.add("allbuttons--yes", "singleButton");
+        yesButton.textContent = `${id}`;
+        yesButton.addEventListener("click", () => {
+          createInformation();
+        });
 
-})
+        const noButton = document.createElement("button");
+        noButton.classList.add("allbuttons--no", "singleButton");
+        noButton.textContent = "Other";
 
+        allButtonsDiv.appendChild(yesButton);
+        allButtonsDiv.appendChild(noButton);
 
-const noButton = document.createElement('button');
-noButton.classList.add('allbuttons--no', 'singleButton');
-noButton.textContent = 'Other';
-
-
-allButtonsDiv.appendChild(yesButton);
-allButtonsDiv.appendChild(noButton);
-
-
-
-  middleMessageChatMssge.appendChild(chatwithImageDiv);
-  middleMessageChatMssge.appendChild(detailDiv);
-  middleMessageChatMssge.appendChild(allButtonsDiv);
-  middleMessageElement.appendChild(middleMessageChatMssge);
-  midddleElement.scrollTop = midddleElement.scrollHeight;
-      })
+        middleMessageChatMssge.appendChild(chatwithImageDiv);
+        middleMessageChatMssge.appendChild(detailDiv);
+        middleMessageChatMssge.appendChild(allButtonsDiv);
+        middleMessageElement.appendChild(middleMessageChatMssge);
+        midddleElement.scrollTop = midddleElement.scrollHeight;
+      });
 
       const noButton = document.createElement("button");
       noButton.classList.add("allbuttons--no", "singleButton");
       noButton.textContent = "No";
-      noButton.addEventListener('click',()=>{
+      noButton.addEventListener("click", () => {
         chatwithImageDiv.appendChild(chatImage);
         chatwithImageDiv.appendChild(chatParagraph);
         const detailDiv = document.createElement("div");
         detailDiv.classList.add("detail");
-      detailDiv.textContent=`Thank You! 😊`;
-      const buttonElement = document.createElement("button");
-      buttonElement.textContent = 'Start the Chat again'
-      buttonElement.classList.add("startagain");
-      buttonElement.addEventListener('click',()=>{
-        location.reload();
-      })
+        detailDiv.textContent = `Thank You! 😊`;
+        const buttonElement = document.createElement("button");
+        buttonElement.textContent = "Start the Chat again";
+        buttonElement.classList.add("startagain");
+        buttonElement.addEventListener("click", () => {
+          location.reload();
+        });
 
-      middleMessageChatMssge.appendChild(chatwithImageDiv);
-      middleMessageChatMssge.appendChild(detailDiv);
-      middleMessageChatMssge.appendChild(buttonElement);
-      midddleElement.scrollTop = midddleElement.scrollHeight;
-      })
+        middleMessageChatMssge.appendChild(chatwithImageDiv);
+        middleMessageChatMssge.appendChild(detailDiv);
+        middleMessageChatMssge.appendChild(buttonElement);
+        midddleElement.scrollTop = midddleElement.scrollHeight;
+      });
 
       allButtonsDiv.appendChild(yesButton);
       allButtonsDiv.appendChild(noButton);
@@ -269,67 +255,58 @@ allButtonsDiv.appendChild(noButton);
       middleMessageChatMssge.appendChild(allButtonsDiv);
     } else {
       detailDiv.textContent = "Please enter a valid city Name";
-      middleMessageChatMssge.appendChild(detailDiv);    
+      middleMessageChatMssge.appendChild(detailDiv);
     }
-
   }
 
- 
   middleMessageElement.appendChild(middleMessageInput);
   middleMessageElement.appendChild(middleMessageChatMssge);
   midddleElement.scrollTop = midddleElement.scrollHeight;
 }
 
-
-function createInformation(){
+function createInformation() {
   const middleChatMssge = document.createElement("div");
   middleChatMssge.classList.add("middle__message__chatMssge");
 
-  const topHeadElement = document.createElement('div');
- topHeadElement.classList.add('middle__top--head2');
-topHeadElement.textContent="What information are you looking for? "
+  const topHeadElement = document.createElement("div");
+  topHeadElement.classList.add("middle__top--head2");
+  topHeadElement.textContent = "What information are you looking for? ";
 
+  const middleBottom = document.createElement("div");
+  middleBottom.classList.add("middle__bottom");
 
-const middleBottom = document.createElement('div');
-middleBottom.classList.add('middle__bottom');
+  const temptimeDiv = document.createElement("div");
+  temptimeDiv.classList.add("middle__bottom__temptime", "temptime");
 
+  const tempDiv = document.createElement("div");
+  tempDiv.classList.add("temptime__temp", "tag");
+  tempDiv.id = "temperature";
+  tempDiv.textContent = "🌡️ Temperature";
 
-const temptimeDiv = document.createElement('div');
-temptimeDiv.classList.add('middle__bottom__temptime', 'temptime');
+  const timeDiv = document.createElement("div");
+  timeDiv.classList.add("temptime__time", "tag");
+  timeDiv.id = "time";
+  timeDiv.textContent = "🕛 Time";
 
+  temptimeDiv.appendChild(tempDiv);
+  temptimeDiv.appendChild(timeDiv);
 
-const tempDiv = document.createElement('div');
-tempDiv.classList.add('temptime__temp', 'tag');
-tempDiv.id = 'temperature';
-tempDiv.textContent = '🌡️ Temperature';
+  const windDiv = document.createElement("div");
+  windDiv.classList.add("middle__bottom__wind", "tag");
+  windDiv.id = "wind";
+  windDiv.textContent = "🎐 Wind Speed";
 
+  const weatherDiv = document.createElement("div");
+  weatherDiv.classList.add("middle__bottom__weather", "tag");
+  weatherDiv.id = "weather";
+  weatherDiv.textContent = "⛅ Weather Status";
 
-const timeDiv = document.createElement('div');
-timeDiv.classList.add('temptime__time', 'tag');
-timeDiv.id = 'time';
-timeDiv.textContent = '🕛 Time';
+  middleBottom.appendChild(temptimeDiv);
+  middleBottom.appendChild(windDiv);
+  middleBottom.appendChild(weatherDiv);
+  middleChatMssge.appendChild(topHeadElement);
 
-
-temptimeDiv.appendChild(tempDiv);
-temptimeDiv.appendChild(timeDiv);
-
-const windDiv = document.createElement('div');
-windDiv.classList.add('middle__bottom__wind', 'tag');
-windDiv.id = 'wind';
-windDiv.textContent = '🎐 Wind Speed';
-
-const weatherDiv = document.createElement('div');
-weatherDiv.classList.add('middle__bottom__weather', 'tag');
-weatherDiv.id = 'weather';
-weatherDiv.textContent = '⛅ Weather Status';
-
-middleBottom.appendChild(temptimeDiv);
-middleBottom.appendChild(windDiv);
-middleBottom.appendChild(weatherDiv);
-middleChatMssge.appendChild(topHeadElement);
-
-
-middleChatMssge.appendChild(middleBottom);  
-middleMessageElement.appendChild(middleChatMssge);
-midddleElement.scrollTop = midddleElement.scrollHeight;
+  middleChatMssge.appendChild(middleBottom);
+  middleMessageElement.appendChild(middleChatMssge);
+  midddleElement.scrollTop = midddleElement.scrollHeight;
 }

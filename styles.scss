@@ -137,10 +137,22 @@
         gap: pxtorem(20px);
        
         &__imgBox{
+          position: relative;
           &--img{
             width: 55px;
             height: 55px;
             border-radius: 50%;
+          }
+          &--live{
+            position: absolute;
+            right: 0;
+            bottom: pxtorem(10px);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(20, 234, 20);
+            border: 1px solid white;
+           
           }
         }
         &__chatHead{
