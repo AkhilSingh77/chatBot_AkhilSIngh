@@ -368,8 +368,9 @@ button {
   background-color: white;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 0.625rem 0.3125rem;
-  border-radius: 10px 10px 10px 0px;
+  padding: 15px;
+  border-radius: 17px;
+  border-bottom-left-radius: 0px;
 }
 .body .section__chatbox .middle__message__chatMssge .allbuttons {
   display: flex;

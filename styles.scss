@@ -272,8 +272,9 @@
             .detail{
               background-color: $white-color;
               width: fit-content;
-      padding: pxtorem(10px) pxtorem(5px);
-      border-radius: 10px 10px 10px 0px;
+      padding: 15px;
+      border-radius: 17px;
+    border-bottom-left-radius: 0px;
             }
             .allbuttons{
               @include flexRow(center,center);
