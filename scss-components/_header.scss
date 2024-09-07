@@ -1,0 +1,59 @@
+.header{
+  @include flexRow(space-between,center);
+  height: pxtorem(80px);
+  padding: pxtorem(25px) pxtorem(25px);
+  border: 1px solid rgb(223, 221, 221);
+
+  &__nav{
+   
+    padding-bottom: pxtorem(5px);
+    width: 40%;
+   display: none;
+    @media (min-width: 1000px) {
+      @include flexRow(space-between,center);
+    }
+ 
+    &__item{
+      @include flexRow(flex-start,center);
+      gap:pxtorem(15px);
+      &--head{
+        font-weight: 600;
+        font-size: pxtorem(17px);
+      }
+    }
+  }
+
+  &__allbuttons{
+    @include flexRow(center,center);
+    gap: pxtorem(10px);
+   
+          &__login{
+            background-color: $white-color;
+            border: 1.5px solid black;
+            border-radius: pxtorem(5px);
+            padding: pxtorem(10px) pxtorem(20px);
+            @include flexRow();
+            gap: pxtorem(5px);
+            font-weight:700;
+            font-size: pxtorem(14px);
+            @media (max-width:600px) {
+              padding: pxtorem(10px) pxtorem(10px);
+              font-size: pxtorem(12px);
+            }
+          }
+          &__signup{
+            background-color: $signup-color;
+           font-weight:700;
+            color: $white-color;
+            border-radius: pxtorem(5px);
+            padding: pxtorem(12px) pxtorem(20px);
+            @include flexRow(center,center);
+            gap: pxtorem(5px);
+            font-size: pxtorem(14px);
+            @media (max-width:600px) {
+              padding: pxtorem(10px) pxtorem(10px);
+              font-size: pxtorem(12px);
+            }
+          }
+  }
+}
